@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playable - Production-Ready Playable Ads</title>
+    <meta name="description" content="High-performance playable ads built with TypeScript and Vite. Optimized for speed and universal ad network compatibility.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a14;
+            --bg-secondary: #12121f;
+            --bg-card: #1a1a2e;
+            --text-primary: #ffffff;
+            --text-secondary: #a8b2d1;
+            --accent-purple: #a855f7;
+            --accent-blue: #3b82f6;
+            --accent-pink: #ec4899;
+            --accent-cyan: #06b6d4;
+            --accent-green: #10b981;
+            --border: #2d2d44;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: radial-gradient(ellipse at top, #1a1a2e 0%, #0a0a14 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-image {
+            max-width: 100%;
+            border-radius: 16px;
+            margin: 40px 0;
+            box-shadow: 0 25px 80px rgba(168, 85, 247, 0.15);
+            border: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: var(--text-primary);
+        }
+
+        .demo-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .demo-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            position: relative;
+        }
+
+        .demo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-cyan) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 16px;
+            z-index: 0;
+        }
+
+        .demo-card:hover::before {
+            opacity: 0.08;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 20px 60px rgba(168, 85, 247, 0.2);
+        }
+
+        .demo-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-secondary);
+            z-index: 1;
+        }
+
+        .demo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 16 / 9;
+            transition: transform 0.3s ease;
+        }
+
+        .demo-card:hover .demo-image {
+            transform: scale(1.05);
+        }
+
+        .demo-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        .demo-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .demo-description {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .demo-stats {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        .stat {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 20px;
+            color: var(--accent-purple);
+            font-weight: 500;
+        }
+
+        .accordion-toggle {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            border: none;
+            color: var(--text-primary);
+            padding: 18px 32px;
+            font-size: 1.05rem;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+            font-weight: 600;
+            box-shadow: 0 8px 30px rgba(168, 85, 247, 0.3);
+        }
+
+        .accordion-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(168, 85, 247, 0.4);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .accordion-content.active {
+            max-height: 3000px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 100px;
+            padding-top: 50px;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        footer a {
+            color: var(--accent-purple);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 60px;
+        }
+
+        .tech-badge {
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            color: var(--accent-purple);
+            font-weight: 500;
+        }
+
+        @media (max-width: 1024px) {
+            .demo-card {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-image-wrapper {
+                min-height: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.05rem;
+            }
+
+            .demo-card {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-image-wrapper {
+                min-height: 200px;
+            }
+
+            .demo-content {
+                padding: 24px;
+            }
+
+            .demo-title {
+                font-size: 1.4rem;
+            }
+
+            .demo-stats {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Playable</h1>
+            <p class="tagline">Production-ready playable ads built with TypeScript and Vite. Optimized for speed and universal compatibility.</p>
+            <img src="hero.png" alt="Playable ads showcase" class="hero-image">
+        </header>
+
+        <section>
+            <h2 class="section-title">Featured Demos</h2>
+            <div class="demo-grid">
+                <a href="ad/frostworld/" class="demo-card">
+                    <div class="demo-image-wrapper">
+                        <img src="ad/frostworld/promo.png" alt="Frost World" class="demo-image">
+                    </div>
+                    <div class="demo-content">
+                        <h3 class="demo-title">Frost World</h3>
+                        <p class="demo-description">Resource management and survival mechanics in a frozen world</p>
+                        <div class="demo-stats">
+                            <span class="stat">258 KB</span>
+                            <span class="stat">MRAID v2.0</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="ad/bubbleshooter/" class="demo-card">
+                    <div class="demo-image-wrapper">
+                        <img src="ad/bubbleshooter/promo.png" alt="Bubble Shooter" class="demo-image">
+                    </div>
+                    <div class="demo-content">
+                        <h3 class="demo-title">Bubble Shooter</h3>
+                        <p class="demo-description">Classic arcade bubble-popping with precision aiming</p>
+                        <div class="demo-stats">
+                            <span class="stat">151 KB</span>
+                            <span class="stat">MRAID v2.0</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="ad/blockblast/" class="demo-card">
+                    <div class="demo-image-wrapper">
+                        <img src="ad/blockblast/promo.png" alt="Block Blast" class="demo-image">
+                    </div>
+                    <div class="demo-content">
+                        <h3 class="demo-title">Block Blast</h3>
+                        <p class="demo-description">Strategic block placement with satisfying chain-clears</p>
+                        <div class="demo-stats">
+                            <span class="stat">299 KB</span>
+                            <span class="stat">MRAID v2.0</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="ad/labsort/" class="demo-card">
+                    <div class="demo-image-wrapper">
+                        <img src="ad/labsort/promo.png" alt="LabSort" class="demo-image">
+                    </div>
+                    <div class="demo-content">
+                        <h3 class="demo-title">LabSort</h3>
+                        <p class="demo-description">Laboratory sorting mechanics with precise controls</p>
+                        <div class="demo-stats">
+                            <span class="stat">100 KB</span>
+                            <span class="stat">MRAID v2.0</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <button class="accordion-toggle" onclick="toggleAccordion()">See More Demos</button>
+            
+            <div id="moredemos" class="accordion-content">
+                <div class="demo-grid">
+                    <a href="ad/gemmatcher/" class="demo-card">
+                        <div class="demo-image-wrapper">
+                            <img src="ad/gemmatcher/promo.png" alt="Gem Matcher" class="demo-image">
+                        </div>
+                        <div class="demo-content">
+                            <h3 class="demo-title">Gem Matcher</h3>
+                            <p class="demo-description">Match-3 puzzle with instant gratification loops</p>
+                            <div class="demo-stats">
+                                <span class="stat">176 KB</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="ad/dragonmerge/" class="demo-card">
+                        <div class="demo-image-wrapper">
+                            <img src="ad/dragonmerge/promo.png" alt="Dragon Merge" class="demo-image">
+                        </div>
+                        <div class="demo-content">
+                            <h3 class="demo-title">Dragon Merge</h3>
+                            <p class="demo-description">Merge progression with mythical creatures</p>
+                            <div class="demo-stats">
+                                <span class="stat">241 KB</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="ad/cookieempire/" class="demo-card">
+                        <div class="demo-image-wrapper">
+                            <img src="ad/cookieempire/promo.png" alt="Cookie Empire" class="demo-image">
+                        </div>
+                        <div class="demo-content">
+                            <h3 class="demo-title">Cookie Empire</h3>
+                            <p class="demo-description">Hyper-casual idle clicker with growth curves</p>
+                            <div class="demo-stats">
+                                <span class="stat">188 KB</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="ad/wordmatch/" class="demo-card">
+                        <div class="demo-image-wrapper">
+                            <img src="ad/wordmatch/promo.png" alt="Word Match" class="demo-image">
+                        </div>
+                        <div class="demo-content">
+                            <h3 class="demo-title">Word Match</h3>
+                            <p class="demo-description">Fast-paced bilingual word puzzles</p>
+                            <div class="demo-stats">
+                                <span class="stat">198 KB</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="tech-stack">
+            <span class="tech-badge">TypeScript</span>
+            <span class="tech-badge">Vite</span>
+            <span class="tech-badge">Tailwind CSS</span>
+            <span class="tech-badge">MRAID Compliant</span>
+            <span class="tech-badge">Single-file HTML</span>
+            <span class="tech-badge">&lt;300ms Load Time</span>
+        </div>
+
+        <footer>
+            <p>Part of <a href="https://touchplay.dev" target="_blank">TouchPlay</a> - building tools for faster playable ad production.</p>
+            <p style="margin-top: 20px; font-size: 0.9rem;">MIT License</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleAccordion() {
+            const content = document.getElementById('moredemos');
+            const button = document.querySelector('.accordion-toggle');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                button.textContent = 'See More Demos';
+            } else {
+                content.classList.add('active');
+                button.textContent = 'Show Less';
+            }
+        }
+    </script>
+</body>
+</html>
