@@ -14,6 +14,7 @@ Visit [heyrtl.github.io/playable](https://heyrtl.github.io/playable) to interact
 - **Bubble Shooter** - Classic arcade bubble-popping (151kb)
 - **Block Blast** - Strategic block placement puzzle (299kb)
 - **LabSort** - Laboratory color water sorting mechanics (100kb)
+- **Royal Match** - Classic Match-3 Puzzle mechanics (96kb)
 
 ## Additional Demos
 
