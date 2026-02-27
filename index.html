@@ -12,7 +12,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         :root {
             --bg-primary: #0a0a14;
             --bg-secondary: #12121f;
@@ -26,7 +25,6 @@
             --accent-green: #10b981;
             --border: #2d2d44;
         }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             background: radial-gradient(ellipse at top, #1a1a2e 0%, #0a0a14 100%);
@@ -34,18 +32,15 @@
             line-height: 1.6;
             min-height: 100vh;
         }
-
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 60px 20px;
         }
-
         header {
             text-align: center;
             margin-bottom: 80px;
         }
-
         h1 {
             font-size: 4rem;
             font-weight: 800;
@@ -56,14 +51,12 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .tagline {
             font-size: 1.25rem;
             color: var(--text-secondary);
             max-width: 700px;
             margin: 0 auto 40px;
         }
-
         .hero-image {
             max-width: 100%;
             border-radius: 16px;
@@ -71,21 +64,18 @@
             box-shadow: 0 25px 80px rgba(168, 85, 247, 0.15);
             border: 1px solid var(--border);
         }
-
         .section-title {
             font-size: 1.75rem;
             font-weight: 700;
             margin-bottom: 40px;
             color: var(--text-primary);
         }
-
         .demo-grid {
             display: flex;
             flex-direction: column;
             gap: 30px;
             margin-bottom: 60px;
         }
-
         .demo-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -98,7 +88,6 @@
             grid-template-columns: 400px 1fr;
             position: relative;
         }
-
         .demo-card::before {
             content: '';
             position: absolute;
@@ -112,24 +101,20 @@
             border-radius: 16px;
             z-index: 0;
         }
-
         .demo-card:hover::before {
             opacity: 0.08;
         }
-
         .demo-card:hover {
             transform: translateY(-4px);
             border-color: var(--accent-purple);
             box-shadow: 0 20px 60px rgba(168, 85, 247, 0.2);
         }
-
         .demo-image-wrapper {
             position: relative;
             overflow: hidden;
             background: var(--bg-secondary);
             z-index: 1;
         }
-
         .demo-image {
             width: 100%;
             height: 100%;
@@ -137,11 +122,9 @@
             aspect-ratio: 16 / 9;
             transition: transform 0.3s ease;
         }
-
         .demo-card:hover .demo-image {
             transform: scale(1.05);
         }
-
         .demo-content {
             padding: 30px;
             display: flex;
@@ -150,7 +133,6 @@
             z-index: 1;
             position: relative;
         }
-
         .demo-title {
             font-size: 1.75rem;
             font-weight: 700;
@@ -160,20 +142,17 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .demo-description {
             color: var(--text-secondary);
             font-size: 1.05rem;
             margin-bottom: 20px;
             line-height: 1.7;
         }
-
         .demo-stats {
             display: flex;
             gap: 20px;
             font-size: 0.9rem;
         }
-
         .stat {
             display: inline-flex;
             align-items: center;
@@ -185,7 +164,6 @@
             color: var(--accent-purple);
             font-weight: 500;
         }
-
         .accordion-toggle {
             background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
             border: none;
@@ -201,22 +179,18 @@
             font-weight: 600;
             box-shadow: 0 8px 30px rgba(168, 85, 247, 0.3);
         }
-
         .accordion-toggle:hover {
             transform: translateY(-2px);
             box-shadow: 0 12px 40px rgba(168, 85, 247, 0.4);
         }
-
         .accordion-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease;
         }
-
         .accordion-content.active {
             max-height: 3000px;
         }
-
         footer {
             text-align: center;
             margin-top: 100px;
@@ -224,17 +198,39 @@
             border-top: 1px solid var(--border);
             color: var(--text-secondary);
         }
-
         footer a {
             color: var(--accent-purple);
             text-decoration: none;
             transition: color 0.2s ease;
         }
-
         footer a:hover {
             color: var(--accent-cyan);
         }
-
+        .email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+            padding: 12px 28px;
+            background: transparent;
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            border-radius: 10px;
+            color: var(--accent-purple);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+        .email-btn:hover {
+            background: rgba(168, 85, 247, 0.1);
+            border-color: var(--accent-purple);
+            color: var(--accent-cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(168, 85, 247, 0.2);
+        }
+        .email-btn svg {
+            flex-shrink: 0;
+        }
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
@@ -242,7 +238,6 @@
             justify-content: center;
             margin-top: 60px;
         }
-
         .tech-badge {
             background: rgba(168, 85, 247, 0.1);
             border: 1px solid rgba(168, 85, 247, 0.2);
@@ -252,42 +247,33 @@
             color: var(--accent-purple);
             font-weight: 500;
         }
-
         @media (max-width: 1024px) {
             .demo-card {
                 grid-template-columns: 1fr;
             }
-
             .demo-image-wrapper {
                 min-height: 250px;
             }
         }
-
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5rem;
             }
-
             .tagline {
                 font-size: 1.05rem;
             }
-
             .demo-card {
                 grid-template-columns: 1fr;
             }
-
             .demo-image-wrapper {
                 min-height: 200px;
             }
-
             .demo-content {
                 padding: 24px;
             }
-
             .demo-title {
                 font-size: 1.4rem;
             }
-
             .demo-stats {
                 flex-wrap: wrap;
             }
@@ -302,7 +288,6 @@
             <p class="tagline">Production-ready playable ads built with TouchPlay AI. Optimized for speed and universal compatibility.</p>
             <img src="hero.png" alt="Playable ads showcase" class="hero-image">
         </header>
-
         <section>
             <h2 class="section-title">Featured Demos</h2>
             <div class="demo-grid">
@@ -319,7 +304,6 @@
                         </div>
                     </div>
                 </a>
-
                 <a href="ad/royalmatch/" class="demo-card">
                     <div class="demo-image-wrapper">
                         <img src="ad/royalmatch/promo.png" alt="Royal Match" class="demo-image">
@@ -333,7 +317,6 @@
                         </div>
                     </div>
                 </a>
-
                 <a href="ad/bubbleshooter/" class="demo-card">
                     <div class="demo-image-wrapper">
                         <img src="ad/bubbleshooter/promo.png" alt="Bubble Shooter" class="demo-image">
@@ -347,7 +330,6 @@
                         </div>
                     </div>
                 </a>
-
                 <a href="ad/blockblast/" class="demo-card">
                     <div class="demo-image-wrapper">
                         <img src="ad/blockblast/promo.png" alt="Block Blast" class="demo-image">
@@ -361,7 +343,6 @@
                         </div>
                     </div>
                 </a>
-
                 <a href="ad/labsort/" class="demo-card">
                     <div class="demo-image-wrapper">
                         <img src="ad/labsort/promo.png" alt="LabSort" class="demo-image">
@@ -375,7 +356,6 @@
                         </div>
                     </div>
                 </a>
-
                 <a href="ad/frostworld/" class="demo-card">
                     <div class="demo-image-wrapper">
                         <img src="ad/frostworld/promo.png" alt="Frost World" class="demo-image">
@@ -389,7 +369,6 @@
                         </div>
                     </div>
                 </a>
-
                 <a href="ad/screwpuzzle/" class="demo-card">
                     <div class="demo-image-wrapper">
                         <img src="ad/screwpuzzle/promo.png" alt="Screw Puzzle" class="demo-image">
@@ -404,7 +383,6 @@
                     </div>
                 </a>
             </div>
-
             <button class="accordion-toggle" onclick="toggleAccordion()">See More Demos</button>
             
             <div id="moredemos" class="accordion-content">
@@ -421,7 +399,6 @@
                             </div>
                         </div>
                     </a>
-
                     <a href="ad/dragonmerge/" class="demo-card">
                         <div class="demo-image-wrapper">
                             <img src="ad/dragonmerge/promo.png" alt="Dragon Merge" class="demo-image">
@@ -434,7 +411,6 @@
                             </div>
                         </div>
                     </a>
-
                     <a href="ad/cookieempire/" class="demo-card">
                         <div class="demo-image-wrapper">
                             <img src="ad/cookieempire/promo.png" alt="Cookie Empire" class="demo-image">
@@ -447,7 +423,6 @@
                             </div>
                         </div>
                     </a>
-
                     <a href="ad/wordmatch/" class="demo-card">
                         <div class="demo-image-wrapper">
                             <img src="ad/wordmatch/promo.png" alt="Word Match" class="demo-image">
@@ -463,7 +438,6 @@
                 </div>
             </div>
         </section>
-
         <div class="tech-stack">
             <span class="tech-badge">TypeScript</span>
             <span class="tech-badge">Vite</span>
@@ -472,13 +446,18 @@
             <span class="tech-badge">Single-file HTML</span>
             <span class="tech-badge">&lt;300ms Load Time</span>
         </div>
-
         <footer>
             <p>Part of <a href="https://touchplay.dev" target="_blank">TouchPlay</a> - building tools for faster playable ad production.</p>
+            <a href="mailto:hello@ratul-rahman.com" class="email-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                hello@ratul-rahman.com
+            </a>
             <p style="margin-top: 20px; font-size: 0.9rem;">MIT License</p>
         </footer>
     </div>
-
     <script>
         function toggleAccordion() {
             const content = document.getElementById('moredemos');
