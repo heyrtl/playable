@@ -2,7 +2,7 @@
 
 > Production-ready playable ads built with TypeScript and Vite — optimized for speed and universal ad network compatibility.
 
-![Playable Hero](https://raw.githubusercontent.com/heyrtl/playable/main/hero.png)
+![Playable Hero](https://raw.githubusercontent.com/heyrtl/playable/main/hero.gif)
 
 **[→ View Live Demos](https://heyrtl.github.io/playable)**
 
