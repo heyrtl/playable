@@ -12,23 +12,23 @@
 
 | Ad | Description | Size | Standard |
 |----|-------------|------|----------|
-| **Pixel Flow** | Fast-paced hybrid casual with pixel art aesthetics | 59 KB | MRAID v2.0 |
-| **Royal Match** | Match-3 puzzle with royal theme & special power-ups | 97 KB | MRAID v2.0 |
-| **Block Blast** | Strategic block placement with satisfying chain-clears | 299 KB | MRAID v2.0 |
-| **Bubble Shooter** | Classic arcade bubble-popping with precision aiming | 151 KB | MRAID v2.0 |
-| **LabSort** | Laboratory color-water sorting mechanics | 100 KB | MRAID v2.0 |
-| **Frost World** | 4X resource management & survival in a frozen world | 258 KB | MRAID v2.0 |
-| **Screw Puzzle** | Unscrew puzzle mechanics with a wood theme | 81 KB | MRAID v2.0 |
+| [**Pixel Flow**](ad/pixelflow/) | Fast-paced hybrid casual with pixel art aesthetics | 59 KB | MRAID v2.0 |
+| [**Royal Match**](ad/royalmatch/) | Match-3 puzzle with royal theme & special power-ups | 97 KB | MRAID v2.0 |
+| [**LabSort**](ad/labsort/) | Laboratory color-water sorting mechanics | 100 KB | MRAID v2.0 |
+| [**Block Blast**](ad/blockblast/) | Strategic block placement with satisfying chain-clears | 299 KB | MRAID v2.0 |
+| [**Bubble Shooter**](ad/bubbleshooter/) | Classic arcade bubble-popping with precision aiming | 151 KB | MRAID v2.0 |
+| [**Screw Puzzle**](ad/screwpuzzle/) | Unscrew puzzle mechanics with a wood theme | 81 KB | MRAID v2.0 |
+| [**Frost World**](ad/frostworld/) | 4X resource management & survival in a frozen world | 258 KB | MRAID v2.0 |
 
 <details>
 <summary>More demos</summary>
 
 | Ad | Description | Size |
 |----|-------------|------|
-| **Gem Matcher** | Match-3 puzzle with instant gratification loops | 176 KB |
-| **Dragon Merge** | Merge-2 progression with mythical creatures | 241 KB |
-| **Cookie Empire** | Hyper-casual idle clicker with growth curves | 188 KB |
-| **Word Match** | Fast-paced bilingual word puzzles | 198 KB |
+| [**Gem Matcher**](ad/gemmatcher/) | Match-3 puzzle with instant gratification loops | 176 KB |
+| [**Dragon Merge**](ad/dragonmerge/) | Merge-2 progression with mythical creatures | 241 KB |
+| [**Cookie Empire**](ad/cookieempire/) | Hyper-casual idle clicker with growth curves | 188 KB |
+| [**Word Match**](ad/wordmatch/) | Fast-paced bilingual word puzzles | 198 KB |
 
 </details>
 
