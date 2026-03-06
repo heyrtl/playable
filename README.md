@@ -56,4 +56,4 @@ For inquiries: [hello@ratul-rahman.com](mailto:hello@ratul-rahman.com)
 
 ## License
 
-[MIT](./LICENSE)
+© 2026 Ratul Rahman. All rights reserved. See [LICENSE](./LICENSE) for terms.
