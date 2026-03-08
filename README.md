@@ -13,6 +13,7 @@
 | Ad | Description | Size | Standard |
 |----|-------------|------|----------|
 | [**Pixel Flow**](https://heyrtl.github.io/playable/ad/pixelflow/index.html) | Fast-paced hybrid casual with pixel art aesthetics | 61.1 KB | MRAID v2.0 |
+| [**Color Block Jam**](https://heyrtl.github.io/playable/ad/colorblock/index.html) | Colorful clokc clearing hybrid casual puzzle | 64 KB | MRAID v2.0 |
 | [**Royal Match**](https://heyrtl.github.io/playable/ad/royalmatch/index.html) | Match-3 puzzle with royal theme & special power-ups | 96.3 KB | MRAID v2.0 |
 | [**LabSort**](https://heyrtl.github.io/playable/ad/labsort/index.html) | Laboratory color-water sorting mechanics | 87.6 KB | MRAID v2.0 |
 | [**Block Blast**](https://heyrtl.github.io/playable/ad/blockblast/index.html) | Strategic block placement with satisfying chain-clears | 84.6 KB | MRAID v2.0 |
