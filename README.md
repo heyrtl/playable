@@ -16,7 +16,7 @@
 | [**Color Block Jam**](https://heyrtl.github.io/playable/ad/colorblock/index.html) | Colorful clokc clearing hybrid casual puzzle | 66.3 KB | MRAID v2.0 | 2.5D |
 | [**Royal Match**](https://heyrtl.github.io/playable/ad/royalmatch/index.html) | Match-3 puzzle with royal theme & special power-ups | 96.3 KB | MRAID v2.0 | 2.5D |
 | [**LabSort**](https://heyrtl.github.io/playable/ad/labsort/index.html) | Laboratory color-water sorting mechanics | 87.6 KB | MRAID v2.0 | 2D |
-| [**Link Legends**](https://heyrtl.github.io/playable/ad/linklegends/index.html) | PvP Dot Linking Puzzle | 69.1 KB | MRAID v2.0 | 2.5D |
+| [**Link Legends**](https://heyrtl.github.io/playable/ad/linklegends/index.html) | PvP Dot Linking Puzzle | 67.6 KB | MRAID v2.0 | 2.5D |
 | [**Block Blast**](https://heyrtl.github.io/playable/ad/blockblast/index.html) | Strategic block placement with satisfying chain-clears | 84.6 KB | MRAID v2.0 | 2D |
 | [**Bubble Shooter**](https://heyrtl.github.io/playable/ad/bubbleshooter/index.html) | Classic arcade bubble-popping with precision aiming | 75 KB | MRAID v2.0 | 2D |
 | [**Screw Puzzle**](https://heyrtl.github.io/playable/ad/screwpuzzle/index.html) | Unscrew puzzle mechanics with a wood theme | 76.7 KB | MRAID v2.0 | 2.5D |
