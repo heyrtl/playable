@@ -155,6 +155,12 @@
             gap: 20px;
             font-size: 0.9rem;
         }
+        .demo-footer {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 20px;
+        }
         .stat {
             display: inline-flex;
             align-items: center;
@@ -165,6 +171,24 @@
             border-radius: 20px;
             color: var(--accent-purple);
             font-weight: 500;
+        }
+        .demo-qr {
+            width: 84px;
+            height: 84px;
+            min-width: 84px;
+            padding: 6px;
+            border-radius: 10px;
+            background: #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .demo-qr img,
+        .demo-qr canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
         }
         .accordion-toggle {
             background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
@@ -275,6 +299,10 @@
             }
             .demo-stats {
                 flex-wrap: wrap;
+            }
+            .demo-footer {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
@@ -491,6 +519,7 @@
             <p style="margin-top: 20px; font-size: 0.9rem;"> <a href="https://github.com/heyrtl/playable/blob/main/LICENSE">License</a></p>
         </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
     <script>
         function toggleAccordion() {
             const content = document.getElementById('moredemos');
@@ -504,6 +533,31 @@
                 button.textContent = 'Show Less';
             }
         }
+
+        document.querySelectorAll('.demo-card').forEach((card) => {
+            const content = card.querySelector('.demo-content');
+            const stats = content.querySelector('.demo-stats');
+
+            if (!content || !stats) return;
+
+            const footer = document.createElement('div');
+            footer.className = 'demo-footer';
+            stats.parentNode.insertBefore(footer, stats);
+            footer.appendChild(stats);
+
+            const qrContainer = document.createElement('div');
+            qrContainer.className = 'demo-qr';
+            footer.appendChild(qrContainer);
+
+            new QRCode(qrContainer, {
+                text: new URL(card.getAttribute('href'), window.location.href).href,
+                width: 72,
+                height: 72,
+                colorDark: '#0a0a14',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.M
+            });
+        });
     </script>
 </body>
 </html>
