@@ -20,6 +20,7 @@
 | [**Link Legends**](https://heyrtl.github.io/playable/ad/linklegends/index.html) | PvP Dot Linking Puzzle | 68.2 KB | MRAID v2.0 | 2.5D |
 | [**Block Blast**](https://heyrtl.github.io/playable/ad/blockblast/index.html) | Strategic block placement with satisfying chain-clears | 84.6 KB | MRAID v2.0 | 2D |
 | [**Bubble Shooter**](https://heyrtl.github.io/playable/ad/bubbleshooter/index.html) | Classic arcade bubble-popping with precision aiming | 75 KB | MRAID v2.0 | 2D |
+| [**Word Search**](https://heyrtl.github.io/playable/ad/wordsearch/index.html) | Find hidden words in a grid of letters | 47.7 KB | MRAID v2.0 | 2D |
 | [**Screw Puzzle**](https://heyrtl.github.io/playable/ad/screwpuzzle/index.html) | Unscrew puzzle mechanics with a wood theme | 76.7 KB | MRAID v2.0 | 2.5D |
 | [**Crazy Goaal!**](https://heyrtl.github.io/playable/ad/crazygoal/index.html) | Soccer-style gameplay with crazy physics | 563 KB | MRAID v2.0 | 3D |
 
