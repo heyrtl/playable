@@ -1,6 +1,6 @@
 # Playable
 
-> Production-ready playable ads built with TypeScript and Vite — optimized for speed and universal ad network compatibility.
+> Production-ready playable ads — optimized for speed and universal ad network compatibility.
 
 [![Playable Hero](https://raw.githubusercontent.com/heyrtl/playable/main/hero.gif)](https://heyrtl.github.io/playable/)
 
@@ -39,21 +39,13 @@
 
 ---
 
-## Tech Stack
-
-- **TypeScript** — fully typed codebase
-- **Vite** — fast builds with single-file HTML output
-- **Tailwind CSS** — utility-first styling
-- **MRAID v2.0** — compliant with all major ad networks
-- **Zero runtime dependencies** — nothing extra shipped to the user
-
 All playables load in **< 300ms on 3G** and are compatible with universal ad networks out of the box.
 
 ---
 
 ## About
 
-Part of [TouchPlay](https://touchplay.dev) — building tools for faster playable ad production.
+Part of [TouchPlay](https://touchplay.dev) — The fastest way to ship custom playable ads.
 
 For inquiries: [hello@ratul-rahman.com](mailto:hello@ratul-rahman.com)
 
