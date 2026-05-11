@@ -422,17 +422,23 @@
         }
 
         .footer-license {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border: 1px solid var(--border-hover);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-size: 0.82rem;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.68rem;
-            color: var(--text-muted);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: all 0.2s ease;
+            letter-spacing: 0.04em;
         }
 
         .footer-license:hover {
-            color: var(--text-secondary);
+            border-color: var(--accent);
+            color: var(--accent);
         }
 
         /* ── RESPONSIVE ── */
