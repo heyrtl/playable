@@ -17,7 +17,7 @@
 | [**Royal Match**](https://heyrtl.github.io/playable/ad/royalmatch/index.html) | Match-3 puzzle with royal theme & special power-ups | 96.3 KB | MRAID v2.0 | 2.5D |
 | [**Block Crush**](https://heyrtl.github.io/playable/ad/blockcrush/index.html) | Wood Block Tetris Puzzle | 59.4 KB | MRAID v2.0 | 2.5D |
 | [**Arrows](https://heyrtl.github.io/playable/ad/arrows/index.html) |
-Arrows clearing Puzzle | 73.4 KB | MRAID v3.0 | 2D
+Arrows clearing Puzzle | 71.7 KB | MRAID v3.0 | 2D
 | [**LabSort**](https://heyrtl.github.io/playable/ad/labsort/index.html) | Laboratory color-water sorting mechanics | 87.6 KB | MRAID v2.0 | 2D |
 | [**Link Legends**](https://heyrtl.github.io/playable/ad/linklegends/index.html) | PvP Dot Linking Puzzle | 68.2 KB | MRAID v2.0 | 2.5D |
 | [**Block Blast**](https://heyrtl.github.io/playable/ad/blockblast/index.html) | Strategic block placement with satisfying chain-clears | 84.6 KB | MRAID v2.0 | 2D |
