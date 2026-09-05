@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playable Ads Portfolio — Ratul Rahman</title>
     <meta name="description" content="Custom 2D, 2.5D, and 3D HTML5 playable ads by Ratul Rahman, built with TypeScript, HTML5 Canvas, and Three.js/WebGL.">
+    <meta name="theme-color" content="#0d0b09">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Playable Ads Portfolio — Ratul Rahman">
+    <meta property="og:description" content="Custom 2D, 2.5D, and 3D HTML5 playable ads by Ratul Rahman, built with TypeScript, HTML5 Canvas, and Three.js/WebGL.">
+    <meta property="og:image" content="hero.gif">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Playable Ads Portfolio — Ratul Rahman">
+    <meta name="twitter:description" content="Custom 2D, 2.5D, and 3D HTML5 playable ads by Ratul Rahman, built with TypeScript, HTML5 Canvas, and Three.js/WebGL.">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,10 +36,13 @@
             --accent: #c4793a;
             --accent-light: #e09a60;
             --accent-dim: rgba(196, 121, 58, 0.12);
+            --accent-glow: rgba(196, 121, 58, 0.35);
         }
 
         html {
             scroll-behavior: smooth;
+            scrollbar-color: var(--border-hover) var(--bg);
+            scrollbar-width: thin;
         }
 
         body {
@@ -43,6 +54,16 @@
             overflow-x: hidden;
         }
 
+        ::selection {
+            background: var(--accent);
+            color: #0d0b09;
+        }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 6px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
         /* noise overlay */
         body::before {
             content: '';
@@ -51,7 +72,87 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
             opacity: 0.025;
             pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ambient glow orbs */
+        .glow-orb {
+            position: fixed;
+            width: 480px;
+            height: 480px;
+            border-radius: 50%;
+            filter: blur(110px);
+            pointer-events: none;
             z-index: 0;
+            opacity: 0.16;
+        }
+
+        .glow-orb-a {
+            top: -140px;
+            left: -120px;
+            background: var(--accent);
+            animation: driftA 22s ease-in-out infinite alternate;
+        }
+
+        .glow-orb-b {
+            bottom: -180px;
+            right: -140px;
+            background: #6b4a2e;
+            animation: driftB 26s ease-in-out infinite alternate;
+        }
+
+        @keyframes driftA {
+            from { transform: translate(0, 0); }
+            to { transform: translate(60px, 40px); }
+        }
+
+        @keyframes driftB {
+            from { transform: translate(0, 0); }
+            to { transform: translate(-50px, -30px); }
+        }
+
+        /* scroll progress */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            z-index: 2000;
+        }
+
+        /* back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-hover);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.2s ease, color 0.2s ease;
+            z-index: 500;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            border-color: var(--accent);
+            color: var(--accent);
         }
 
         .container {
@@ -59,7 +160,7 @@
             margin: 0 auto;
             padding: 0 24px;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         /* ── HEADER ── */
@@ -106,7 +207,17 @@
         h1 em {
             font-style: italic;
             font-weight: 300;
-            color: var(--accent);
+            background: linear-gradient(100deg, var(--accent) 20%, var(--accent-light) 50%, var(--accent) 80%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shimmer 7s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 100% center; }
         }
 
         .tagline {
@@ -117,14 +228,30 @@
             line-height: 1.7;
         }
 
+        .hero-frame {
+            position: relative;
+            margin-top: 40px;
+            border-radius: 10px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(196, 121, 58, 0.5), rgba(196, 121, 58, 0.05) 45%, rgba(196, 121, 58, 0.3));
+            box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.6), 0 0 80px -20px var(--accent-glow);
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: 9px;
+            overflow: hidden;
+            background: #100e0b;
+        }
+
         .hero-image {
             width: 100%;
-            border-radius: 8px;
-            margin-top: 40px;
-            border: 1px solid var(--border);
             display: block;
-            opacity: 0.9;
+            opacity: 0.92;
+            transition: opacity 0.3s ease, transform 0.6s ease;
         }
+
+        .hero-frame:hover .hero-image { transform: scale(1.01); opacity: 1; }
 
         /* ── SECTION ── */
         .section-header {
@@ -150,6 +277,8 @@
             color: var(--text-muted);
         }
 
+        .count-num { font-variant-numeric: tabular-nums; }
+
         /* ── DEMO CARDS ── */
         .demo-grid {
             display: flex;
@@ -167,8 +296,15 @@
             overflow: hidden;
             text-decoration: none;
             color: inherit;
-            transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
             position: relative;
+            opacity: 0;
+            transform: translateY(22px) perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+            transition: opacity 0.6s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, border-color 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        .demo-card.is-visible {
+            opacity: 1;
+            transform: translateY(0) perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
         }
 
         .demo-card + .demo-card {
@@ -178,28 +314,35 @@
         .demo-card:hover {
             background: var(--bg-card-hover);
             border-color: var(--border-hover);
-            transform: translateX(4px);
+            box-shadow: 0 22px 44px -26px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(196, 121, 58, 0.12), 0 0 40px -18px var(--accent-glow);
         }
 
         .demo-card:hover .card-arrow {
             opacity: 1;
-            transform: translateX(0);
+            transform: translate(0, -50%) scale(1);
         }
 
         .card-arrow {
             position: absolute;
             top: 50%;
             right: 20px;
-            transform: translateX(-6px) translateY(-50%);
-            opacity: 0;
-            transition: opacity 0.2s ease, transform 0.2s ease;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1px solid var(--border-hover);
+            background: var(--bg-card-hover);
             color: var(--accent);
-            font-size: 1.1rem;
-            font-family: 'JetBrains Mono', monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translate(6px, -50%) scale(0.7);
+            opacity: 0;
+            transition: opacity 0.25s ease, transform 0.25s ease;
         }
 
         /* image */
         .demo-image-wrapper {
+            position: relative;
             overflow: hidden;
             background: #100e0b;
             max-height: 300px;
@@ -220,9 +363,37 @@
             opacity: 1;
         }
 
+        /* graceful fallback for missing artwork */
+        .demo-image-wrapper.img-fallback,
+        .hero-image-wrapper.img-fallback {
+            background: linear-gradient(135deg, #201a13, #100e0b);
+        }
+
+        .demo-image-wrapper.img-fallback .demo-image,
+        .hero-image-wrapper.img-fallback .hero-image {
+            display: none;
+        }
+
+        .demo-image-wrapper.img-fallback::after,
+        .hero-image-wrapper.img-fallback::after {
+            content: attr(data-fallback);
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Fraunces', serif;
+            font-size: 1.4rem;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            opacity: 0.55;
+        }
+
+        .hero-image-wrapper.img-fallback::after { font-size: 2.4rem; }
+
         /* content */
         .demo-content {
-            padding: 22px 56px 22px 24px;
+            padding: 22px 64px 22px 24px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -262,7 +433,7 @@
         .demo-stats {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
         }
 
@@ -270,22 +441,29 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.68rem;
             color: var(--text-muted);
-            letter-spacing: 0.06em;
-            display: flex;
+            letter-spacing: 0.05em;
+            display: inline-flex;
             align-items: center;
-            gap: 6px;
+            padding: 3px 9px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.015);
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+
+        .demo-card:hover .stat { border-color: var(--border-hover); }
+
+        .stat.accent {
+            color: var(--accent-light);
+            border-color: rgba(196, 121, 58, 0.35);
+            background: var(--accent-dim);
         }
 
         .stat-sep {
-            width: 3px;
-            height: 3px;
-            border-radius: 50%;
-            background: var(--text-muted);
-            opacity: 0.4;
-        }
-
-        .stat.accent {
-            color: var(--accent);
+            width: 1px;
+            height: 10px;
+            background: var(--border-hover);
+            opacity: 0.6;
         }
 
         /* QR */
@@ -300,7 +478,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: transform 0.25s ease;
         }
+
+        .demo-card:hover .demo-qr { transform: scale(1.05); }
 
         .demo-qr img,
         .demo-qr canvas {
@@ -441,6 +622,55 @@
             color: var(--accent);
         }
 
+        /* ── LICENSE MODAL ── */
+        .license-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            backdrop-filter: blur(6px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .license-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .license-panel {
+            background: #151210;
+            border: 1px solid #2a2018;
+            border-radius: 8px;
+            max-width: 640px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 40px;
+            position: relative;
+            transform: translateY(14px) scale(0.97);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .license-overlay.active .license-panel {
+            transform: translateY(0) scale(1);
+        }
+
+        .license-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            border-radius: 8px 8px 0 0;
+        }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
             header {
@@ -452,7 +682,7 @@
             }
 
             .demo-content {
-                padding: 16px 44px 16px 16px;
+                padding: 16px 52px 16px 16px;
                 min-height: 110px;
             }
 
@@ -470,9 +700,28 @@
                 min-width: 52px;
             }
 
+            .card-arrow {
+                width: 28px;
+                height: 28px;
+                right: 14px;
+            }
+
             .footer-inner {
                 flex-direction: column;
                 align-items: flex-start;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .glow-orb {
+                width: 280px;
+                height: 280px;
+                filter: blur(70px);
             }
         }
 
@@ -494,22 +743,23 @@
 
         header { animation: fadeUp 0.6s ease both; }
         .section-header { animation: fadeUp 0.6s 0.1s ease both; }
-        .demo-card {
-            animation: fadeUp 0.5s ease both;
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+                scroll-behavior: auto !important;
+            }
         }
-        .demo-card:nth-child(1) { animation-delay: 0.15s; }
-        .demo-card:nth-child(2) { animation-delay: 0.20s; }
-        .demo-card:nth-child(3) { animation-delay: 0.25s; }
-        .demo-card:nth-child(4) { animation-delay: 0.30s; }
-        .demo-card:nth-child(5) { animation-delay: 0.35s; }
-        .demo-card:nth-child(6) { animation-delay: 0.40s; }
-        .demo-card:nth-child(7) { animation-delay: 0.45s; }
-        .demo-card:nth-child(8) { animation-delay: 0.50s; }
-        .demo-card:nth-child(9) { animation-delay: 0.55s; }
-        .demo-card:nth-child(10) { animation-delay: 0.60s; }
     </style>
 </head>
 <body>
+
+    <div class="progress-bar" id="progress-bar"></div>
+    <div class="glow-orb glow-orb-a" aria-hidden="true"></div>
+    <div class="glow-orb glow-orb-b" aria-hidden="true"></div>
+
     <div class="container">
 
         <!-- HEADER -->
@@ -519,14 +769,18 @@
                 <h1>Play<em>able</em></h1>
                 <p class="tagline">Custom 2D, 2.5D &amp; 3D playable ads — built from gameplay, supplied assets, and creative references.</p>
             </div>
-            <img src="hero.gif" alt="Playable ads showcase" class="hero-image">
+            <div class="hero-frame">
+                <div class="hero-image-wrapper">
+                    <img src="hero.gif" alt="Playable ads showcase" class="hero-image">
+                </div>
+            </div>
         </header>
 
         <!-- FEATURED DEMOS -->
         <section>
             <div class="section-header">
                 <span class="section-label">Selected Playable Work</span>
-                <span class="section-count">14 playables</span>
+                <span class="section-count"><span class="count-num">14</span> playables</span>
             </div>
 
             <div class="demo-grid" id="featured-grid">
@@ -551,7 +805,7 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow">→</span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
                 <a href="ad/colorblock/" class="demo-card">
@@ -574,7 +828,7 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow">→</span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
                 <a href="ad/royalmatch/" class="demo-card">
@@ -597,7 +851,7 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow">→</span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
                 <a href="ad/blockcrush/" class="demo-card">
@@ -620,7 +874,7 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow">→</span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
                 <a href="ad/arrows/" class="demo-card">
@@ -643,7 +897,7 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow">→</span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
                 <a href="ad/arrowflow/" class="demo-card">
@@ -666,7 +920,7 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow">→</span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
                 <a href="ad/labsort/" class="demo-card">
@@ -689,7 +943,7 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow">→</span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
                 <a href="ad/linklegends/" class="demo-card">
@@ -712,7 +966,7 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow">→</span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
                 <a href="ad/blockblast/" class="demo-card">
@@ -735,7 +989,7 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow">→</span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
                 <a href="ad/bubbleshooter/" class="demo-card">
@@ -758,7 +1012,7 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow">→</span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
                 <a href="ad/wordsearch/" class="demo-card">
@@ -781,7 +1035,7 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow">→</span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
                 <a href="ad/knockitdown/" class="demo-card">
@@ -804,7 +1058,7 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow">→</span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
                 <a href="ad/pixelgun/" class="demo-card">
@@ -827,7 +1081,7 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow">→</span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
                 <a href="ad/crazygoal/" class="demo-card">
@@ -850,7 +1104,7 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow">→</span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
             </div>
@@ -981,37 +1235,30 @@
                         </svg>
                         ratul@adquirk.com
                     </a>
-                    <a href="#" class="footer-license" onclick="openLicense(event)">License</a>
+                    <a href="#" class="footer-license" onclick="openLicense(event)">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <path d="M14 2v6h6"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <line x1="10" y1="9" x2="8" y2="9"/>
+                        </svg>
+                        License
+                    </a>
                 </div>
             </div>
         </footer>
 
     </div>
 
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+    </button>
+
     <!-- LICENSE MODAL -->
-    <div id="license-modal" style="
-        display:none;
-        position:fixed;
-        inset:0;
-        background:rgba(0,0,0,0.75);
-        z-index:1000;
-        align-items:center;
-        justify-content:center;
-        padding:24px;
-        backdrop-filter:blur(6px);
-    " onclick="closeLicense(event)">
-        <div style="
-            background:#151210;
-            border:1px solid #2a2018;
-            border-radius:8px;
-            max-width:640px;
-            width:100%;
-            max-height:80vh;
-            overflow-y:auto;
-            padding:40px;
-            position:relative;
-        ">
-            <button onclick="document.getElementById('license-modal').style.display='none'" style="
+    <div id="license-modal" class="license-overlay" onclick="closeLicense(event)">
+        <div class="license-panel">
+            <button onclick="document.getElementById('license-modal').classList.remove('active')" style="
                 position:absolute;
                 top:16px;
                 right:16px;
@@ -1058,15 +1305,16 @@ ratul@adquirk.com</pre>
 
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
     <script>
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
         function openLicense(e) {
             e.preventDefault();
-            const m = document.getElementById('license-modal');
-            m.style.display = 'flex';
+            document.getElementById('license-modal').classList.add('active');
         }
 
         function closeLicense(e) {
             if (e.target === document.getElementById('license-modal')) {
-                document.getElementById('license-modal').style.display = 'none';
+                document.getElementById('license-modal').classList.remove('active');
             }
         }
 
@@ -1094,6 +1342,83 @@ ratul@adquirk.com</pre>
                 correctLevel: QRCode.CorrectLevel.M
             });
         });
+
+        // Graceful fallback if artwork hasn't been dropped into the folder yet
+        function attachImageFallback(img) {
+            img.addEventListener('error', () => {
+                const wrap = img.closest('.demo-image-wrapper, .hero-image-wrapper');
+                if (!wrap) return;
+                const initials = (img.alt || '?').trim().split(/\s+/).map(w => w[0]).join('').slice(0, 3).toUpperCase();
+                wrap.setAttribute('data-fallback', initials);
+                wrap.classList.add('img-fallback');
+            }, { once: true });
+        }
+        document.querySelectorAll('.demo-image, .hero-image').forEach(attachImageFallback);
+
+        // Scroll-triggered card reveal + magnetic tilt
+        const cards = document.querySelectorAll('.demo-card');
+        if (prefersReducedMotion) {
+            cards.forEach(c => c.classList.add('is-visible'));
+        } else {
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, i) => {
+                    if (entry.isIntersecting) {
+                        const delay = Math.min(i * 55, 330);
+                        setTimeout(() => entry.target.classList.add('is-visible'), delay);
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+            cards.forEach(c => revealObserver.observe(c));
+
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const px = (e.clientX - rect.left) / rect.width;
+                    const py = (e.clientY - rect.top) / rect.height;
+                    card.style.setProperty('--ry', ((px - 0.5) * 6) + 'deg');
+                    card.style.setProperty('--rx', ((0.5 - py) * 6) + 'deg');
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.setProperty('--rx', '0deg');
+                    card.style.setProperty('--ry', '0deg');
+                });
+            });
+        }
+
+        // Count-up for the featured-work tally — reads the live card count,
+        // so it stays correct if cards are added, removed, or uncommented.
+        const countEl = document.querySelector('.count-num');
+        if (countEl) {
+            const target = cards.length;
+            if (prefersReducedMotion) {
+                countEl.textContent = target;
+            } else {
+                const duration = 900;
+                const start = performance.now() + 300;
+                function tick(now) {
+                    const t = Math.min(Math.max((now - start) / duration, 0), 1);
+                    const eased = 1 - Math.pow(1 - t, 3);
+                    countEl.textContent = Math.round(eased * target);
+                    if (t < 1) requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+            }
+        }
+
+        // Scroll progress + back-to-top
+        const progressBar = document.getElementById('progress-bar');
+        const backToTop = document.getElementById('back-to-top');
+        function onScroll() {
+            const doc = document.documentElement;
+            const scrollTop = window.scrollY;
+            const max = doc.scrollHeight - doc.clientHeight;
+            progressBar.style.width = (max > 0 ? (scrollTop / max) * 100 : 0) + '%';
+            backToTop.classList.toggle('visible', scrollTop > window.innerHeight * 0.6);
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' }));
     </script>
 </body>
 </html>
