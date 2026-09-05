@@ -440,24 +440,18 @@
         .stat {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.68rem;
-            color: var(--text-muted);
+            color: var(--accent-light);
             letter-spacing: 0.05em;
             display: inline-flex;
             align-items: center;
             padding: 3px 9px;
             border-radius: 20px;
-            border: 1px solid var(--border);
-            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid rgba(196, 121, 58, 0.35);
+            background: var(--accent-dim);
             transition: border-color 0.2s ease, color 0.2s ease;
         }
 
-        .demo-card:hover .stat { border-color: var(--border-hover); }
-
-        .stat.accent {
-            color: var(--accent-light);
-            border-color: rgba(196, 121, 58, 0.35);
-            background: var(--accent-dim);
-        }
+        .demo-card:hover .stat { border-color: rgba(196, 121, 58, 0.55); }
 
         .stat-sep {
             width: 1px;
@@ -796,7 +790,7 @@
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
-                                <span class="stat accent">61 KB</span>
+                                <span class="stat">61 KB</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">MRAID v2.0</span>
                                 <span class="stat-sep"></span>
@@ -819,7 +813,7 @@
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
-                                <span class="stat accent">66 KB</span>
+                                <span class="stat">66 KB</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">MRAID v2.0</span>
                                 <span class="stat-sep"></span>
@@ -842,7 +836,7 @@
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
-                                <span class="stat accent">96 KB</span>
+                                <span class="stat">96 KB</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">MRAID v2.0</span>
                                 <span class="stat-sep"></span>
@@ -865,7 +859,7 @@
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
-                                <span class="stat accent">59 KB</span>
+                                <span class="stat">59 KB</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">MRAID v2.0</span>
                                 <span class="stat-sep"></span>
@@ -888,7 +882,7 @@
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
-                                <span class="stat accent">72 KB</span>
+                                <span class="stat">72 KB</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">MRAID v3.0</span>
                                 <span class="stat-sep"></span>
@@ -911,7 +905,7 @@
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
-                                <span class="stat accent">638 KB</span>
+                                <span class="stat">638 KB</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">MRAID v3.0</span>
                                 <span class="stat-sep"></span>
@@ -934,7 +928,7 @@
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
-                                <span class="stat accent">88 KB</span>
+                                <span class="stat">88 KB</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">MRAID v2.0</span>
                                 <span class="stat-sep"></span>
@@ -957,7 +951,7 @@
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
-                                <span class="stat accent">68 KB</span>
+                                <span class="stat">68 KB</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">MRAID v2.0</span>
                                 <span class="stat-sep"></span>
@@ -980,7 +974,7 @@
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
-                                <span class="stat accent">85 KB</span>
+                                <span class="stat">85 KB</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">MRAID v2.0</span>
                                 <span class="stat-sep"></span>
@@ -1003,7 +997,7 @@
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
-                                <span class="stat accent">75 KB</span>
+                                <span class="stat">75 KB</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">MRAID v2.0</span>
                                 <span class="stat-sep"></span>
@@ -1026,7 +1020,7 @@
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
-                                <span class="stat accent">48 KB</span>
+                                <span class="stat">48 KB</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">MRAID v2.0</span>
                                 <span class="stat-sep"></span>
@@ -1049,7 +1043,7 @@
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
-                                <span class="stat accent">754 KB</span>
+                                <span class="stat">754 KB</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">MRAID v3.0</span>
                                 <span class="stat-sep"></span>
@@ -1072,7 +1066,7 @@
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
-                                <span class="stat accent">676 KB</span>
+                                <span class="stat">676 KB</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">MRAID v3.0</span>
                                 <span class="stat-sep"></span>
@@ -1084,7 +1078,7 @@
                     <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
-                <a href="ad/crazygoal/" class="demo-card">
+                <!-- <a href="ad/crazygoal/" class="demo-card">
                     <div class="demo-image-wrapper">
                         <img src="ad/crazygoal/promo.png" alt="Crazy Goal" class="demo-image">
                     </div>
@@ -1095,7 +1089,7 @@
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
-                                <span class="stat accent">563 KB</span>
+                                <span class="stat">563 KB</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">MRAID v2.0</span>
                                 <span class="stat-sep"></span>
@@ -1105,7 +1099,7 @@
                         </div>
                     </div>
                     <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-                </a>
+                </a> -->
 
             </div>
 
