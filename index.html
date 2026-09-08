@@ -279,6 +279,50 @@
 
         .count-num { font-variant-numeric: tabular-nums; }
 
+        .section-meta {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .dimension-filter {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--bg-card);
+        }
+
+        .dimension-filter-btn {
+            appearance: none;
+            border: 0;
+            border-radius: 16px;
+            background: transparent;
+            color: var(--text-muted);
+            padding: 4px 9px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            transition: color 0.2s ease, background 0.2s ease;
+        }
+
+        .dimension-filter-btn:hover {
+            color: var(--text-secondary);
+        }
+
+        .dimension-filter-btn.active {
+            color: var(--accent-light);
+            background: var(--accent-dim);
+        }
+
+        .demo-card.is-filtered-out {
+            display: none;
+        }
+
         /* ── DEMO CARDS ── */
         .demo-grid {
             display: flex;
@@ -462,10 +506,10 @@
 
         /* QR */
         .demo-qr {
-            width: 64px;
-            height: 64px;
-            min-width: 64px;
-            padding: 4px;
+            width: 76px;
+            height: 76px;
+            min-width: 76px;
+            padding: 6px;
             border-radius: 6px;
             background: #f5f0e8;
             flex-shrink: 0;
@@ -689,9 +733,10 @@
             }
 
             .demo-qr {
-                width: 52px;
-                height: 52px;
-                min-width: 52px;
+                width: 64px;
+                height: 64px;
+                min-width: 64px;
+                padding: 5px;
             }
 
             .card-arrow {
@@ -774,12 +819,20 @@
         <section>
             <div class="section-header">
                 <span class="section-label">Selected Playable Work</span>
-                <span class="section-count"><span class="count-num">14</span> playables</span>
+                <div class="section-meta">
+                    <span class="section-count"><span class="count-num">14</span> playables</span>
+                    <div class="dimension-filter" role="group" aria-label="Filter playables by dimension">
+                        <button class="dimension-filter-btn active" type="button" data-filter="all" aria-pressed="true">All</button>
+                        <button class="dimension-filter-btn" type="button" data-filter="2D" aria-pressed="false">2D</button>
+                        <button class="dimension-filter-btn" type="button" data-filter="2.5D" aria-pressed="false">2.5D</button>
+                        <button class="dimension-filter-btn" type="button" data-filter="3D" aria-pressed="false">3D</button>
+                    </div>
+                </div>
             </div>
 
             <div class="demo-grid" id="featured-grid">
 
-                <a href="ad/pixelflow/" class="demo-card">
+                <a href="ad/pixelflow/" class="demo-card" data-industry="hybrid-casual" data-taxonomy="action-puzzle" data-mechanic="color-matching">
                     <div class="demo-image-wrapper">
                         <img src="ad/pixelflow/promo.png" alt="Pixel Flow" class="demo-image">
                     </div>
@@ -795,6 +848,12 @@
                                 <span class="stat">MRAID v2.0</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">2.5D</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat industry-tag">Hybrid Casual</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat taxonomy-tag">Action Puzzle</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat mechanic-tag">Color Matching</span>
                             </div>
                             <div class="demo-qr"></div>
                         </div>
@@ -802,7 +861,7 @@
                     <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
-                <a href="ad/colorblock/" class="demo-card">
+                <a href="ad/colorblock/" class="demo-card" data-industry="hybrid-casual" data-taxonomy="block-puzzle" data-mechanic="sliding">
                     <div class="demo-image-wrapper">
                         <img src="ad/colorblock/promo.png" alt="Color Block Jam" class="demo-image">
                     </div>
@@ -818,6 +877,12 @@
                                 <span class="stat">MRAID v2.0</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">2.5D</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat industry-tag">Hybrid Casual</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat taxonomy-tag">Block Puzzle</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat mechanic-tag">Sliding</span>
                             </div>
                             <div class="demo-qr"></div>
                         </div>
@@ -825,7 +890,7 @@
                     <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
-                <a href="ad/royalmatch/" class="demo-card">
+                <a href="ad/royalmatch/" class="demo-card" data-industry="casual" data-taxonomy="match-3">
                     <div class="demo-image-wrapper">
                         <img src="ad/royalmatch/promo.png" alt="Royal Match" class="demo-image">
                     </div>
@@ -841,6 +906,10 @@
                                 <span class="stat">MRAID v2.0</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">2.5D</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat industry-tag">Casual</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat taxonomy-tag">Match-3</span>
                             </div>
                             <div class="demo-qr"></div>
                         </div>
@@ -848,7 +917,7 @@
                     <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
-                <a href="ad/blockcrush/" class="demo-card">
+                <a href="ad/blockcrush/" class="demo-card" data-industry="casual" data-taxonomy="block-puzzle">
                     <div class="demo-image-wrapper">
                         <img src="ad/blockcrush/promo.png" alt="Block Crush" class="demo-image">
                     </div>
@@ -864,6 +933,10 @@
                                 <span class="stat">MRAID v2.0</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">2.5D</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat industry-tag">Casual</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat taxonomy-tag">Block Puzzle</span>
                             </div>
                             <div class="demo-qr"></div>
                         </div>
@@ -871,7 +944,7 @@
                     <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
-                <a href="ad/arrows/" class="demo-card">
+                <a href="ad/arrows/" class="demo-card" data-industry="casual" data-taxonomy="logic-puzzle" data-mechanic="tap-away">
                     <div class="demo-image-wrapper">
                         <img src="ad/arrows/promo.png" alt="Arrows" class="demo-image">
                     </div>
@@ -887,6 +960,12 @@
                                 <span class="stat">MRAID v3.0</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">2D</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat industry-tag">Casual</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat taxonomy-tag">Logic Puzzle</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat mechanic-tag">Tap Away</span>
                             </div>
                             <div class="demo-qr"></div>
                         </div>
@@ -894,7 +973,7 @@
                     <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
-                <a href="ad/arrowflow/" class="demo-card">
+                <a href="ad/arrowflow/" class="demo-card" data-industry="casual" data-taxonomy="logic-puzzle" data-mechanic="tap-away">
                     <div class="demo-image-wrapper">
                         <img src="ad/arrowflow/promo.png" alt="ArrowFlow" class="demo-image">
                     </div>
@@ -910,6 +989,12 @@
                                 <span class="stat">MRAID v3.0</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">3D</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat industry-tag">Casual</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat taxonomy-tag">Logic Puzzle</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat mechanic-tag">Tap Away</span>
                             </div>
                             <div class="demo-qr"></div>
                         </div>
@@ -917,7 +1002,7 @@
                     <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
-                <a href="ad/labsort/" class="demo-card">
+                <a href="ad/labsort/" class="demo-card" data-industry="casual" data-taxonomy="sort-puzzle">
                     <div class="demo-image-wrapper">
                         <img src="ad/labsort/promo.png" alt="LabSort" class="demo-image">
                     </div>
@@ -933,6 +1018,10 @@
                                 <span class="stat">MRAID v2.0</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">2D</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat industry-tag">Casual</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat taxonomy-tag">Sort Puzzle</span>
                             </div>
                             <div class="demo-qr"></div>
                         </div>
@@ -940,7 +1029,7 @@
                     <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
-                <a href="ad/linklegends/" class="demo-card">
+                <a href="ad/linklegends/" class="demo-card" data-industry="casual" data-taxonomy="match-3" data-mechanic="linking">
                     <div class="demo-image-wrapper">
                         <img src="ad/linklegends/promo.png" alt="Link Legends" class="demo-image">
                     </div>
@@ -956,6 +1045,12 @@
                                 <span class="stat">MRAID v2.0</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">2.5D</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat industry-tag">Casual</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat taxonomy-tag">Match-3</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat mechanic-tag">Linking</span>
                             </div>
                             <div class="demo-qr"></div>
                         </div>
@@ -963,7 +1058,7 @@
                     <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
-                <a href="ad/blockblast/" class="demo-card">
+                <a href="ad/blockblast/" class="demo-card" data-industry="casual" data-taxonomy="block-puzzle">
                     <div class="demo-image-wrapper">
                         <img src="ad/blockblast/promo.png" alt="Block Blast" class="demo-image">
                     </div>
@@ -979,6 +1074,10 @@
                                 <span class="stat">MRAID v2.0</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">2D</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat industry-tag">Casual</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat taxonomy-tag">Block Puzzle</span>
                             </div>
                             <div class="demo-qr"></div>
                         </div>
@@ -986,7 +1085,7 @@
                     <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
-                <a href="ad/bubbleshooter/" class="demo-card">
+                <a href="ad/bubbleshooter/" class="demo-card" data-industry="casual" data-taxonomy="bubble-shooter" data-mechanic="aim-shoot">
                     <div class="demo-image-wrapper">
                         <img src="ad/bubbleshooter/promo.png" alt="Bubble Shooter" class="demo-image">
                     </div>
@@ -1002,6 +1101,12 @@
                                 <span class="stat">MRAID v2.0</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">2D</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat industry-tag">Casual</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat taxonomy-tag">Bubble Shooter</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat mechanic-tag">Aim & Shoot</span>
                             </div>
                             <div class="demo-qr"></div>
                         </div>
@@ -1009,7 +1114,7 @@
                     <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
-                <a href="ad/wordsearch/" class="demo-card">
+                <a href="ad/wordsearch/" class="demo-card" data-industry="casual" data-taxonomy="word-puzzle" data-mechanic="word-search">
                     <div class="demo-image-wrapper">
                         <img src="ad/wordsearch/promo.png" alt="Word Search" class="demo-image">
                     </div>
@@ -1025,6 +1130,12 @@
                                 <span class="stat">MRAID v2.0</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">2D</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat industry-tag">Casual</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat taxonomy-tag">Word Puzzle</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat mechanic-tag">Word Search</span>
                             </div>
                             <div class="demo-qr"></div>
                         </div>
@@ -1032,7 +1143,7 @@
                     <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
-                <a href="ad/knockitdown/" class="demo-card">
+                <a href="ad/knockitdown/" class="demo-card" data-industry="casual" data-taxonomy="physics-puzzle" data-mechanic="aim-shoot">
                     <div class="demo-image-wrapper">
                         <img src="ad/knockitdown/promo.png" alt="Knock It Down" class="demo-image">
                     </div>
@@ -1043,11 +1154,17 @@
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
-                                <span class="stat">788 KB</span>
+                                <span class="stat">790 KB</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">MRAID v3.0</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">3D</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat industry-tag">Casual</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat taxonomy-tag">Physics Puzzle</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat mechanic-tag">Aim & Shoot</span>
                             </div>
                             <div class="demo-qr"></div>
                         </div>
@@ -1055,7 +1172,7 @@
                     <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
-                <a href="ad/pixelgun/" class="demo-card">
+                <a href="ad/pixelgun/" class="demo-card" data-industry="midcore" data-taxonomy="shooter" data-mechanic="fps">
                     <div class="demo-image-wrapper">
                         <img src="ad/pixelgun/promo.png" alt="Pixel Gun" class="demo-image">
                     </div>
@@ -1071,6 +1188,12 @@
                                 <span class="stat">MRAID v3.0</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">3D</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat industry-tag">Midcore</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat taxonomy-tag">Shooter</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat mechanic-tag">FPS</span>
                             </div>
                             <div class="demo-qr"></div>
                         </div>
@@ -1078,7 +1201,7 @@
                     <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
                 </a>
 
-                <a href="ad/bustraffic/" class="demo-card">
+                <a href="ad/bustraffic/" class="demo-card" data-industry="hybrid-casual" data-taxonomy="logic-puzzle" data-mechanic="parking-jam">
                     <div class="demo-image-wrapper">
                         <img src="ad/bustraffic/promo.png" alt="Bus Traffic Fever!" class="demo-image">
                     </div>
@@ -1094,6 +1217,12 @@
                                 <span class="stat">MRAID v3.0</span>
                                 <span class="stat-sep"></span>
                                 <span class="stat">3D</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat industry-tag">Hybrid Casual</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat taxonomy-tag">Logic Puzzle</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat mechanic-tag">Parking Jam</span>
                             </div>
                             <div class="demo-qr"></div>
                         </div>
@@ -1352,8 +1481,9 @@ ratul@adquirk.com</pre>
 
             new QRCode(qrEl, {
                 text: new URL(card.getAttribute('href'), window.location.href).href,
-                width: 56,
-                height: 56,
+                // Render larger than its CSS display size so QR edges stay crisp on high-DPI screens.
+                width: 192,
+                height: 192,
                 colorDark: '#0d0b09',
                 colorLight: '#f5f0e8',
                 correctLevel: QRCode.CorrectLevel.M
@@ -1403,25 +1533,59 @@ ratul@adquirk.com</pre>
             });
         }
 
-        // Count-up for the featured-work tally — reads the live card count,
-        // so it stays correct if cards are added, removed, or uncommented.
+        // Count-up for the featured-work tally — reads the live visible card count,
+        // so it stays correct if cards are added, removed, uncommented, or filtered.
         const countEl = document.querySelector('.count-num');
-        if (countEl) {
-            const target = cards.length;
-            if (prefersReducedMotion) {
+        const featuredCards = Array.from(document.querySelectorAll('#featured-grid > .demo-card'));
+        let countAnimationFrame = null;
+
+        function setPlayableCount(target, animate = false) {
+            if (!countEl) return;
+            if (countAnimationFrame) cancelAnimationFrame(countAnimationFrame);
+
+            if (!animate || prefersReducedMotion) {
                 countEl.textContent = target;
-            } else {
-                const duration = 900;
-                const start = performance.now() + 300;
-                function tick(now) {
-                    const t = Math.min(Math.max((now - start) / duration, 0), 1);
-                    const eased = 1 - Math.pow(1 - t, 3);
-                    countEl.textContent = Math.round(eased * target);
-                    if (t < 1) requestAnimationFrame(tick);
-                }
-                requestAnimationFrame(tick);
+                return;
             }
+
+            const duration = 900;
+            const start = performance.now() + 300;
+            function tick(now) {
+                const t = Math.min(Math.max((now - start) / duration, 0), 1);
+                const eased = 1 - Math.pow(1 - t, 3);
+                countEl.textContent = Math.round(eased * target);
+                if (t < 1) countAnimationFrame = requestAnimationFrame(tick);
+            }
+            countAnimationFrame = requestAnimationFrame(tick);
         }
+
+        setPlayableCount(featuredCards.length, true);
+
+        // Dimension filter
+        const dimensionFilterButtons = document.querySelectorAll('.dimension-filter-btn');
+        dimensionFilterButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+                let visibleCount = 0;
+
+                dimensionFilterButtons.forEach((btn) => {
+                    const isActive = btn === button;
+                    btn.classList.toggle('active', isActive);
+                    btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                });
+
+                featuredCards.forEach((card) => {
+                    const dimensions = Array.from(card.querySelectorAll('.demo-stats .stat'), (stat) => stat.textContent.trim());
+                    const cardDimension = dimensions.find((value) => value === '2D' || value === '2.5D' || value === '3D');
+                    const isVisible = filter === 'all' || cardDimension === filter;
+
+                    card.classList.toggle('is-filtered-out', !isVisible);
+                    if (isVisible) visibleCount++;
+                });
+
+                setPlayableCount(visibleCount);
+            });
+        });
 
         // Scroll progress + back-to-top
         const progressBar = document.getElementById('progress-bar');
