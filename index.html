@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playable Ads Portfolio — Ratul Rahman</title>
-    <meta name="description" content="Custom 2D, 2.5D, and 3D HTML5 playable ads by Ratul Rahman, built with TypeScript, HTML5 Canvas, and Three.js/WebGL.">
+    <meta name="description"
+        content="Custom 2D, 2.5D, and 3D HTML5 playable ads by Ratul Rahman, built with TypeScript, HTML5 Canvas, and Three.js/WebGL.">
     <meta name="theme-color" content="#0d0b09">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Playable Ads Portfolio — Ratul Rahman">
-    <meta property="og:description" content="Custom 2D, 2.5D, and 3D HTML5 playable ads by Ratul Rahman, built with TypeScript, HTML5 Canvas, and Three.js/WebGL.">
+    <meta property="og:description"
+        content="Custom 2D, 2.5D, and 3D HTML5 playable ads by Ratul Rahman, built with TypeScript, HTML5 Canvas, and Three.js/WebGL.">
     <meta property="og:image" content="hero.gif">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Playable Ads Portfolio — Ratul Rahman">
-    <meta name="twitter:description" content="Custom 2D, 2.5D, and 3D HTML5 playable ads by Ratul Rahman, built with TypeScript, HTML5 Canvas, and Three.js/WebGL.">
+    <meta name="twitter:description"
+        content="Custom 2D, 2.5D, and 3D HTML5 playable ads by Ratul Rahman, built with TypeScript, HTML5 Canvas, and Three.js/WebGL.">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;1,9..144,300;1,9..144,400&family=Figtree:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;1,9..144,300;1,9..144,400&family=Figtree:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
     <style>
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -59,10 +67,22 @@
             color: #0d0b09;
         }
 
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: var(--bg); }
-        ::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 6px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-hover);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
 
         /* noise overlay */
         body::before {
@@ -102,13 +122,23 @@
         }
 
         @keyframes driftA {
-            from { transform: translate(0, 0); }
-            to { transform: translate(60px, 40px); }
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(60px, 40px);
+            }
         }
 
         @keyframes driftB {
-            from { transform: translate(0, 0); }
-            to { transform: translate(-50px, -30px); }
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(-50px, -30px);
+            }
         }
 
         /* scroll progress */
@@ -216,8 +246,15 @@
         }
 
         @keyframes shimmer {
-            0%, 100% { background-position: 0% center; }
-            50% { background-position: 100% center; }
+
+            0%,
+            100% {
+                background-position: 0% center;
+            }
+
+            50% {
+                background-position: 100% center;
+            }
         }
 
         .tagline {
@@ -251,7 +288,10 @@
             transition: opacity 0.3s ease, transform 0.6s ease;
         }
 
-        .hero-frame:hover .hero-image { transform: scale(1.01); opacity: 1; }
+        .hero-frame:hover .hero-image {
+            transform: scale(1.01);
+            opacity: 1;
+        }
 
         /* ── SECTION ── */
         .section-header {
@@ -277,7 +317,9 @@
             color: var(--text-muted);
         }
 
-        .count-num { font-variant-numeric: tabular-nums; }
+        .count-num {
+            font-variant-numeric: tabular-nums;
+        }
 
         .section-meta {
             display: flex;
@@ -351,7 +393,7 @@
             transform: translateY(0) perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
         }
 
-        .demo-card + .demo-card {
+        .demo-card+.demo-card {
             margin-top: 8px;
         }
 
@@ -433,7 +475,9 @@
             opacity: 0.55;
         }
 
-        .hero-image-wrapper.img-fallback::after { font-size: 2.4rem; }
+        .hero-image-wrapper.img-fallback::after {
+            font-size: 2.4rem;
+        }
 
         /* content */
         .demo-content {
@@ -495,7 +539,9 @@
             transition: border-color 0.2s ease, color 0.2s ease;
         }
 
-        .demo-card:hover .stat { border-color: rgba(196, 121, 58, 0.55); }
+        .demo-card:hover .stat {
+            border-color: rgba(196, 121, 58, 0.55);
+        }
 
         .stat-sep {
             width: 1px;
@@ -519,7 +565,9 @@
             transition: transform 0.25s ease;
         }
 
-        .demo-card:hover .demo-qr { transform: scale(1.05); }
+        .demo-card:hover .demo-qr {
+            transform: scale(1.05);
+        }
 
         .demo-qr img,
         .demo-qr canvas {
@@ -776,15 +824,30 @@
 
         /* ── ENTRANCE ANIMATIONS ── */
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(16px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        header { animation: fadeUp 0.6s ease both; }
-        .section-header { animation: fadeUp 0.6s 0.1s ease both; }
+        header {
+            animation: fadeUp 0.6s ease both;
+        }
+
+        .section-header {
+            animation: fadeUp 0.6s 0.1s ease both;
+        }
 
         @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
+
+            *,
+            *::before,
+            *::after {
                 animation-duration: 0.001ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.001ms !important;
@@ -793,6 +856,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="progress-bar" id="progress-bar"></div>
@@ -804,9 +868,12 @@
         <!-- HEADER -->
         <header>
             <div class="header-inner">
-                <span class="header-eyebrow"><a href="https://linkedin.com/in/heyrtl" target="_blank" style="color:var(--accent);text-decoration:none;">Ratul Rahman</a> · Playable Ads Developer</span>
+                <span class="header-eyebrow"><a href="https://linkedin.com/in/heyrtl" target="_blank"
+                        style="color:var(--accent);text-decoration:none;">Ratul Rahman</a> · Playable Ads
+                    Developer</span>
                 <h1>Play<em>able</em></h1>
-                <p class="tagline">Custom 2D, 2.5D &amp; 3D playable ads — built from gameplay, supplied assets, and creative references.</p>
+                <p class="tagline">Custom 2D, 2.5D &amp; 3D playable ads — built from gameplay, supplied assets, and
+                    creative references.</p>
             </div>
             <div class="hero-frame">
                 <div class="hero-image-wrapper">
@@ -822,24 +889,30 @@
                 <div class="section-meta">
                     <span class="section-count"><span class="count-num">14</span> playables</span>
                     <div class="dimension-filter" role="group" aria-label="Filter playables by dimension">
-                        <button class="dimension-filter-btn active" type="button" data-filter="all" aria-pressed="true">All</button>
-                        <button class="dimension-filter-btn" type="button" data-filter="2D" aria-pressed="false">2D</button>
-                        <button class="dimension-filter-btn" type="button" data-filter="2.5D" aria-pressed="false">2.5D</button>
-                        <button class="dimension-filter-btn" type="button" data-filter="3D" aria-pressed="false">3D</button>
+                        <button class="dimension-filter-btn active" type="button" data-filter="all"
+                            aria-pressed="true">All</button>
+                        <button class="dimension-filter-btn" type="button" data-filter="2D"
+                            aria-pressed="false">2D</button>
+                        <button class="dimension-filter-btn" type="button" data-filter="2.5D"
+                            aria-pressed="false">2.5D</button>
+                        <button class="dimension-filter-btn" type="button" data-filter="3D"
+                            aria-pressed="false">3D</button>
                     </div>
                 </div>
             </div>
 
             <div class="demo-grid" id="featured-grid">
 
-                <a href="ad/pixelflow/" class="demo-card" data-industry="hybrid-casual" data-taxonomy="action-puzzle" data-mechanic="color-matching">
+                <a href="ad/pixelflow/" class="demo-card" data-industry="hybrid-casual" data-taxonomy="action-puzzle"
+                    data-mechanic="color-matching">
                     <div class="demo-image-wrapper">
                         <img src="ad/pixelflow/promo.png" alt="Pixel Flow" class="demo-image">
                     </div>
                     <div class="demo-content">
                         <div class="demo-top">
                             <h3 class="demo-title">Pixel Flow</h3>
-                            <p class="demo-description">Reference: Loom Games · Fast-paced hybrid casual with pixel art aesthetics</p>
+                            <p class="demo-description">Reference: Loom Games · Fast-paced hybrid casual with pixel art
+                                aesthetics</p>
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
@@ -858,17 +931,22 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg></span>
                 </a>
 
-                <a href="ad/colorblock/" class="demo-card" data-industry="hybrid-casual" data-taxonomy="block-puzzle" data-mechanic="sliding">
+                <a href="ad/colorblock/" class="demo-card" data-industry="hybrid-casual" data-taxonomy="block-puzzle"
+                    data-mechanic="sliding">
                     <div class="demo-image-wrapper">
                         <img src="ad/colorblock/promo.png" alt="Color Block Jam" class="demo-image">
                     </div>
                     <div class="demo-content">
                         <div class="demo-top">
                             <h3 class="demo-title">Color Block Jam</h3>
-                            <p class="demo-description">Reference: Rollic · Colorful block-clearing hybrid casual puzzle</p>
+                            <p class="demo-description">Reference: Rollic · Colorful block-clearing hybrid casual puzzle
+                            </p>
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
@@ -887,7 +965,10 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg></span>
                 </a>
 
                 <a href="ad/royalmatch/" class="demo-card" data-industry="casual" data-taxonomy="match-3">
@@ -897,7 +978,8 @@
                     <div class="demo-content">
                         <div class="demo-top">
                             <h3 class="demo-title">Royal Match</h3>
-                            <p class="demo-description">Reference: Dream Games · Match-3 puzzle with royal theme and special power-ups</p>
+                            <p class="demo-description">Reference: Dream Games · Match-3 puzzle with royal theme and
+                                special power-ups</p>
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
@@ -914,7 +996,10 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg></span>
                 </a>
 
                 <a href="ad/blockcrush/" class="demo-card" data-industry="casual" data-taxonomy="block-puzzle">
@@ -941,10 +1026,14 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg></span>
                 </a>
 
-                <a href="ad/arrows/" class="demo-card" data-industry="casual" data-taxonomy="logic-puzzle" data-mechanic="tap-away">
+                <a href="ad/arrows/" class="demo-card" data-industry="casual" data-taxonomy="logic-puzzle"
+                    data-mechanic="tap-away">
                     <div class="demo-image-wrapper">
                         <img src="ad/arrows/promo.png" alt="Arrows" class="demo-image">
                     </div>
@@ -970,17 +1059,22 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg></span>
                 </a>
 
-                <a href="ad/arrowflow/" class="demo-card" data-industry="casual" data-taxonomy="logic-puzzle" data-mechanic="tap-away">
+                <a href="ad/arrowflow/" class="demo-card" data-industry="casual" data-taxonomy="logic-puzzle"
+                    data-mechanic="tap-away">
                     <div class="demo-image-wrapper">
                         <img src="ad/arrowflow/promo.png" alt="ArrowFlow" class="demo-image">
                     </div>
                     <div class="demo-content">
                         <div class="demo-top">
                             <h3 class="demo-title">Arrows (3D Edition)</h3>
-                            <p class="demo-description">Reference: Lessmore GmbH · 3D interpretation of the tap-out mechanic</p>
+                            <p class="demo-description">Reference: Lessmore GmbH · 3D interpretation of the tap-out
+                                mechanic</p>
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
@@ -999,7 +1093,10 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg></span>
                 </a>
 
                 <a href="ad/labsort/" class="demo-card" data-industry="casual" data-taxonomy="sort-puzzle">
@@ -1009,7 +1106,8 @@
                     <div class="demo-content">
                         <div class="demo-top">
                             <h3 class="demo-title">Water Sort Puzzle</h3>
-                            <p class="demo-description">Reference: IEC Global · Laboratory color-water sorting mechanics</p>
+                            <p class="demo-description">Reference: IEC Global · Laboratory color-water sorting mechanics
+                            </p>
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
@@ -1026,17 +1124,22 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg></span>
                 </a>
 
-                <a href="ad/linklegends/" class="demo-card" data-industry="casual" data-taxonomy="match-3" data-mechanic="linking">
+                <a href="ad/linklegends/" class="demo-card" data-industry="casual" data-taxonomy="match-3"
+                    data-mechanic="linking">
                     <div class="demo-image-wrapper">
                         <img src="ad/linklegends/promo.png" alt="Link Legends" class="demo-image">
                     </div>
                     <div class="demo-content">
                         <div class="demo-top">
                             <h3 class="demo-title">Link Legends</h3>
-                            <p class="demo-description">Reference: Obscure Games · Dot-linking puzzle adapted from the game’s core mechanic</p>
+                            <p class="demo-description">Reference: Obscure Games · Dot-linking puzzle adapted from the
+                                game’s core mechanic</p>
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
@@ -1055,7 +1158,10 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg></span>
                 </a>
 
                 <a href="ad/blockblast/" class="demo-card" data-industry="casual" data-taxonomy="block-puzzle">
@@ -1065,7 +1171,8 @@
                     <div class="demo-content">
                         <div class="demo-top">
                             <h3 class="demo-title">Block Blast!</h3>
-                            <p class="demo-description">Reference: Hungry Studio · Strategic block placement with satisfying chain-clears</p>
+                            <p class="demo-description">Reference: Hungry Studio · Strategic block placement with
+                                satisfying chain-clears</p>
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
@@ -1082,17 +1189,22 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg></span>
                 </a>
 
-                <a href="ad/bubbleshooter/" class="demo-card" data-industry="casual" data-taxonomy="bubble-shooter" data-mechanic="aim-shoot">
+                <a href="ad/bubbleshooter/" class="demo-card" data-industry="casual" data-taxonomy="bubble-shooter"
+                    data-mechanic="aim-shoot">
                     <div class="demo-image-wrapper">
                         <img src="ad/bubbleshooter/promo.png" alt="Bubble Shooter" class="demo-image">
                     </div>
                     <div class="demo-content">
                         <div class="demo-top">
                             <h3 class="demo-title">Bubble Shooter</h3>
-                            <p class="demo-description">Reference: Ilyon · Classic arcade bubble-popping with precision aiming</p>
+                            <p class="demo-description">Reference: Ilyon · Classic arcade bubble-popping with precision
+                                aiming</p>
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
@@ -1111,17 +1223,22 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg></span>
                 </a>
 
-                <a href="ad/wordsearch/" class="demo-card" data-industry="casual" data-taxonomy="word-puzzle" data-mechanic="word-search">
+                <a href="ad/wordsearch/" class="demo-card" data-industry="casual" data-taxonomy="word-puzzle"
+                    data-mechanic="word-search">
                     <div class="demo-image-wrapper">
                         <img src="ad/wordsearch/promo.png" alt="Word Search" class="demo-image">
                     </div>
                     <div class="demo-content">
                         <div class="demo-top">
                             <h3 class="demo-title">Word Search Explorer</h3>
-                            <p class="demo-description">Reference: PlaySimple · Find hidden words in a grid of letters</p>
+                            <p class="demo-description">Reference: PlaySimple · Find hidden words in a grid of letters
+                            </p>
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
@@ -1140,10 +1257,14 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg></span>
                 </a>
 
-                <a href="ad/knockitdown/" class="demo-card" data-industry="casual" data-taxonomy="physics-puzzle" data-mechanic="aim-shoot">
+                <a href="ad/knockitdown/" class="demo-card" data-industry="casual" data-taxonomy="physics-puzzle"
+                    data-mechanic="aim-shoot">
                     <div class="demo-image-wrapper">
                         <img src="ad/knockitdown/promo.png" alt="Knock It Down" class="demo-image">
                     </div>
@@ -1169,17 +1290,22 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg></span>
                 </a>
 
-                <a href="ad/pixelgun/" class="demo-card" data-industry="midcore" data-taxonomy="shooter" data-mechanic="fps">
+                <a href="ad/pixelgun/" class="demo-card" data-industry="midcore" data-taxonomy="shooter"
+                    data-mechanic="fps">
                     <div class="demo-image-wrapper">
                         <img src="ad/pixelgun/promo.png" alt="Pixel Gun" class="demo-image">
                     </div>
                     <div class="demo-content">
                         <div class="demo-top">
                             <h3 class="demo-title">Pixel Gun 3D</h3>
-                            <p class="demo-description">Reference: Cubic Games · Fast-paced 3D shooter reconstructed from video reference</p>
+                            <p class="demo-description">Reference: Cubic Games · Fast-paced 3D shooter reconstructed
+                                from video reference</p>
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
@@ -1198,17 +1324,56 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg></span>
                 </a>
 
-                <a href="ad/bustraffic/" class="demo-card" data-industry="hybrid-casual" data-taxonomy="logic-puzzle" data-mechanic="parking-jam">
+                <a href="ad/allinhole/" class="demo-card" data-industry="hybrid-casual" data-taxonomy="puzzle"
+                    data-mechanic="black-hole">
+                    <div class="demo-image-wrapper">
+                        <img src="ad/allinhole/promo.png" alt="All in Hole" class="demo-image">
+                    </div>
+                    <div class="demo-content">
+                        <div class="demo-top">
+                            <h3 class="demo-title">All in Hole</h3>
+                            <p class="demo-description">Reference: Homa · 3D black-hole puzzle gameplay reconstructed
+                                from App Store Screenshot</p>
+                        </div>
+                        <div class="demo-bottom">
+                            <div class="demo-stats">
+                                <span class="stat">641 KB</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat">MRAID v3.0</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat">3D</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat industry-tag">Hybrid Casual</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat taxonomy-tag">Puzzle</span>
+                                <span class="stat-sep"></span>
+                                <span class="stat mechanic-tag">Black Hole</span>
+                            </div>
+                            <div class="demo-qr"></div>
+                        </div>
+                    </div>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg></span>
+                </a>
+
+                <a href="ad/bustraffic/" class="demo-card" data-industry="hybrid-casual" data-taxonomy="logic-puzzle"
+                    data-mechanic="parking-jam">
                     <div class="demo-image-wrapper">
                         <img src="ad/bustraffic/promo.png" alt="Bus Traffic Fever!" class="demo-image">
                     </div>
                     <div class="demo-content">
                         <div class="demo-top">
                             <h3 class="demo-title">Bus Traffic Fever!</h3>
-                            <p class="demo-description">Reference: GOODROID · 3D bus congestion clearance gameplay reconstructed from video reference</p>
+                            <p class="demo-description">Reference: GOODROID · 3D bus congestion clearance gameplay
+                                reconstructed from video reference</p>
                         </div>
                         <div class="demo-bottom">
                             <div class="demo-stats">
@@ -1227,7 +1392,10 @@
                             <div class="demo-qr"></div>
                         </div>
                     </div>
-                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                    <span class="card-arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg></span>
                 </a>
 
                 <!-- <a href="ad/crazygoal/" class="demo-card">
@@ -1375,19 +1543,21 @@
                 </div>
                 <div class="footer-right">
                     <a href="mailto:ratul@adquirk.com" class="email-btn">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="4" width="20" height="16" rx="2"/>
-                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                         </svg>
                         ratul@adquirk.com
                     </a>
                     <a href="#" class="footer-license" onclick="openLicense(event)">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                            <path d="M14 2v6h6"/>
-                            <line x1="16" y1="13" x2="8" y2="13"/>
-                            <line x1="16" y1="17" x2="8" y2="17"/>
-                            <line x1="10" y1="9" x2="8" y2="9"/>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <path d="M14 2v6h6" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                            <line x1="10" y1="9" x2="8" y2="9" />
                         </svg>
                         License
                     </a>
@@ -1398,7 +1568,11 @@
     </div>
 
     <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5" />
+            <polyline points="5 12 12 5 19 12" />
+        </svg>
     </button>
 
     <!-- LICENSE MODAL -->
@@ -1418,7 +1592,9 @@
                 padding:4px 8px;
                 transition:color 0.2s;
             " onmouseover="this.style.color='#f0ebe2'" onmouseout="this.style.color='#7a6e5f'">✕</button>
-            <p style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:#c4793a;margin-bottom:24px;">License</p>
+            <p
+                style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:#c4793a;margin-bottom:24px;">
+                License</p>
             <pre style="
                 font-family:'JetBrains Mono',monospace;
                 font-size:0.75rem;
@@ -1602,4 +1778,5 @@ ratul@adquirk.com</pre>
         backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' }));
     </script>
 </body>
+
 </html>
